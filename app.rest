@@ -1,0 +1,9 @@
+http://localhost:3003
+
+###
+POST http://localhost:3003/addUser
+Content-Type: application/json
+
+{
+    "nama": "Didit Bedudu"
+}
