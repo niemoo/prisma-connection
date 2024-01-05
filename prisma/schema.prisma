@@ -10,8 +10,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model users {
-  id String @unique @default(uuid())
-  nama String
-  date DateTime @default(now())
+model Users {
+  id    String   @unique @default(uuid())
+  nama  String
+  date  DateTime @default(now())
+  Posts Posts[]
+}
+
+model Posts {
+  id     String   @unique @default(uuid())
+  title  String
+  text   String
+  date   DateTime @default(now())
+  user   Users    @relation(fields: [userid], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userid String
 }
